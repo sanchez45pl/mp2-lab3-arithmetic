@@ -27,20 +27,6 @@ TEST(stack, push_change_size)
 	ASSERT_EQ(s.empty(), false);
 }
 
-TEST(stack, can_full)
-{
-	stack <int> s(1);
-	s.push(1);
-	ASSERT_EQ(s.full(), true);
-}
-
-TEST(stack, change_capacity)
-{
-	stack <int> s(0);
-	s.change_capacity();
-	s.push(1);
-	ASSERT_EQ(s.full(), true);
-}
 
 TEST(stack, can_return_size)
 {
@@ -50,12 +36,7 @@ TEST(stack, can_return_size)
 	ASSERT_EQ(s.stack_size(), 2);
 }
 
-TEST(stack, push_in_full_change_capacity)
-{
-	stack <int> s(0);
-	s.push(1);
-	ASSERT_EQ(s.full(), true);
-}
+
 
 TEST(stack, cant_push_in_MAX_SIZE)
 {

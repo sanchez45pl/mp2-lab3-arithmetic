@@ -1,5 +1,4 @@
-﻿// îáúÿâëåíèå è ðåàëèçàöèÿ øàáëîííîãî ñòåêà
-// объявление и реализация шаблонного стека
+﻿// объявление и реализация шаблонного стека
 // стек поддерживает операции: 
 // - вставка элемента, 
 // - извлечение элемента, 
@@ -25,6 +24,11 @@ private:
 	size_t size;
 	T* data;
 
+	bool full()
+	{
+		return(size == capacity);
+	}
+
 public:
 	stack(const size_t capacity_ = 10) :capacity(capacity_), size(0)
 	{
@@ -49,11 +53,6 @@ public:
 	bool empty()
 	{
 		return(size == 0);
-	}
-
-	bool full()
-	{
-		return(size == capacity);
 	}
 
 	void clear()

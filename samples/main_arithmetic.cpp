@@ -30,29 +30,24 @@ int main()
 		}
 
 		char choice;
-		cout << "Translate the expression into reverse Polish notation?: 1 - Yes, 2 - No\n";
-		cin >> choice;
-		if (choice == '1')
-		{
-			postfix_entry pe(exp);
-			cout << "Reverse Polish entry(~ - unary minus): " << pe << '\n';
-			cout << "Calculate the expression?: 1 - Yes, 2 - No\n";
-			cin >> choice;
 
-			while (flag)
+		postfix_entry pe(exp);
+		cout << "Calculate the expression?: 1 - Yes, 2 - No\n";
+		cin >> choice;
+
+		while (flag)
+		{
+			if (choice == '1')
 			{
-				if (choice == '1')
-				{
-					cout << "Result: " << pe.computation() << '\n';
-				}
-				else
-				{
-					flag = false;
-					break;
-				}
-				cout << "Calculate the expression again?: 1 - Yes, 2 - No\n";
-				cin >> choice;
+				cout << "Result: " << pe.computation() << '\n';
 			}
+			else
+			{
+				flag = false;
+				break;
+			}
+			cout << "Calculate the expression again?: 1 - Yes, 2 - No\n";
+			cin >> choice;
 		}
 
 		cout << "Do you want to finish?: 1 - Yes, 2 - No\n";

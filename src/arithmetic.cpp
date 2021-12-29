@@ -170,6 +170,12 @@ bool myexpression::correct() const
 	return correct;
 }
 
+string myexpression::removeSpaces(string input) 
+{
+	input.erase(std::remove(input.begin(), input.end(), ' '), input.end());
+	return input;
+}
+
 istream& operator>>(istream& in, myexpression& exp_)
 {
 	in >> exp_.exp;

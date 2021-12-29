@@ -19,6 +19,8 @@ class myexpression
 {
 private:
 	string exp;
+	string removeSpaces(string input);
+	
 
 public:
 	myexpression() : exp("") {};

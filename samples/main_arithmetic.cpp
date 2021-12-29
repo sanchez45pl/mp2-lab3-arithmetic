@@ -13,10 +13,9 @@ int main()
 
 	while (globalflag)
 	{
-		cout << "Enter your expression (without spaces):\n";
+		cout << "Enter your expression:\n";
 		cin >> in;
 
-		exp = in;
 		bool flag = false;
 		while (!flag)
 		{

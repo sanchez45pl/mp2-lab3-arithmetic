@@ -1,20 +1,25 @@
 // реализация пользовательского приложения
 
 #include <iostream>
+#include <string>
+#include <cstdlib>
 #include "arithmetic.h"
 
 using namespace std;
 
 int main()
 {
-	string in;
-	myexpression exp;
 	size_t globalflag = true;
 
 	while (globalflag)
 	{
+		string in;
+		myexpression exp;
+
 		cout << "Enter your expression:\n";
-		cin >> in;
+		getline(cin, in);
+		in.erase(std::remove(in.begin(), in.end(), ' '), in.end());
+		exp = in;
 
 		bool flag = false;
 		while (!flag)
@@ -23,7 +28,8 @@ int main()
 			if (!flag)
 			{
 				cout << "Enter your correct expression:\n";
-				cin >> in;
+				getline(cin, in);
+				in.erase(std::remove(in.begin(), in.end(), ' '), in.end());
 				exp = in;
 			}
 		}
@@ -55,6 +61,6 @@ int main()
 		{
 			globalflag = false;
 		}
-		cin.clear();
+		
 	}
 }

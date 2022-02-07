@@ -26,6 +26,7 @@ public:
 	myexpression() : exp("") {};
 	myexpression(const string& exp_) : exp(exp_) {};
 	myexpression(const myexpression& other) : exp(other.exp) {};
+//	string removeSpaces(string input);
 
 	bool correct() const;
 

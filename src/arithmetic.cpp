@@ -142,8 +142,9 @@ bool myexpression::correct() const
 				}
 				if (op(exp[i]))
 				{
-					if ((flag == "op" && (exp[i] != '-' || exp[i - 1] == '-')) || (exp[i] != '-' && flag == "sl") || (i + 1 == exp.size() ||
-						(!number(exp[i + 1]) && !letter(exp[i + 1]) && exp[i + 1] != '(' && exp[i + 1] != '.' && exp[i + 1] != '-')))
+					if ((flag == "op" && (exp[i] != '-' || (!number(exp[i + 1]) && !letter(exp[i + 1]) && exp[i + 1] != '-'))) ||
+						(exp[i] != '-' && flag == "sl") || (i + 1 == exp.size() ||
+							(!number(exp[i + 1]) && !letter(exp[i + 1]) && exp[i + 1] != '(' && exp[i + 1] != '.' && exp[i + 1] != '-')))
 					{
 						correct = false;
 						cout << i << " symbol: Incorrect operation\n";
@@ -170,11 +171,11 @@ bool myexpression::correct() const
 	return correct;
 }
 
-string myexpression::removeSpaces(string input) 
-{
-	input.erase(std::remove(input.begin(), input.end(), ' '), input.end());
-	return input;
-}
+//string myexpression::removeSpaces(string input) 
+//{
+//	input.erase(std::remove(input.begin(), input.end(), ' '), input.end());
+//	return input;
+//}
 
 istream& operator>>(istream& in, myexpression& exp_)
 {
@@ -235,7 +236,7 @@ postfix_entry::postfix_entry(const myexpression& exp_)
 				}
 				st.push(exp_[i]);
 			}
-			if (exp_[i] == '(' || (op(exp_[i]) && exp_[i] != '-'))
+			if (exp_[i] == '(' || (op(exp_[i]) && exp_[i + 1] == '-'))
 			{
 				flag = true;
 			}
